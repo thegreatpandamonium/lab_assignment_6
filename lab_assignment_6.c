@@ -2,7 +2,27 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	// Terminating Condition
+	if (high < low ){
+		return -1;
+	}
+	
+	// Find midpoint
+	int med = (low+high)/2;
+
+	// Check if midpoint equals value
+	if(numbers[med] == value){
+		return med;
+	}
+
+	// Else check if value is greater than midpoint
+	else if(numbers[med]>value){
+		return search(numbers, low, med-1,value); // calling search again but now the upper limit is midpoint-1
+	}
+
+	else{
+		return search(numbers, med+1, high, value); // calling seach again but now the lower limit is midpoint+1
+	}
 }
 
 void printArray(int numbers[], int sz)
