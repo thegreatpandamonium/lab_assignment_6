@@ -8,7 +8,7 @@ int search(int numbers[], int low, int high, int value)
 	}
 	
 	// Find midpoint
-	int med = (low+high)/2;
+	int med = low+((high-low)/2);
 
 	// Check if midpoint equals value
 	if(numbers[med] == value){
